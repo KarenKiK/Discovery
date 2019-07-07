@@ -1,0 +1,7 @@
+<root>
+    <item name='org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration.LiquibaseConfiguration liquibase.integration.spring.SpringLiquibase liquibase()'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val name="pure" val="true"/>
+        </annotation>
+    </item>
+</root>

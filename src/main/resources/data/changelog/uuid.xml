@@ -1,0 +1,20 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="sanya">
+        <createTable tableName="uuid">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+        </createTable>
+
+        <insert tableName="uuid">
+            <column name="id" value="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"></column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

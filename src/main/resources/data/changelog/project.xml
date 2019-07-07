@@ -1,0 +1,61 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="nnigmat">
+        <createTable tableName="project">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"></constraints>
+            </column>
+            <column name="name" type="varchar(128)">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="description" type="TEXT" defaultValue="...">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="date_created" type="DATE">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="creator_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_project_creator" references="usr(id)"></constraints>
+            </column>
+        </createTable>
+
+        <insert tableName="project">
+            <column name="id" value="-1"></column>
+            <column name="name" value="Summer internship"></column>
+            <column name="description" value="Create summer internship site"></column>
+            <column name="date_created" value="2019-06-18"></column>
+            <column name="creator_id" value="-3"></column>
+        </insert>
+        <insert tableName="project">
+            <column name="id" value="0"></column>
+            <column name="name" value="Make online game"></column>
+            <column name="description" value="Make MMORPG"></column>
+            <column name="date_created" value="2019-06-21"></column>
+            <column name="creator_id" value="-2"></column>
+        </insert>
+
+        <createTable tableName="project_type">
+            <column name="project_id" type="bigint">
+                <constraints foreignKeyName="fk_user_account" references="project(id)" nullable="false"></constraints>
+            </column>
+            <column name="type" type="varchar(128)" defaultValue="NEW">
+                <constraints nullable="false"></constraints>
+            </column>
+        </createTable>
+
+        <insert tableName="project_type">
+            <column name="project_id" value="-1"></column>
+            <column name="type" value="ACCEPTED"></column>
+        </insert>
+
+        <insert tableName="project_type">
+            <column name="project_id" value="0"></column>
+            <column name="type" value="NEW"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
