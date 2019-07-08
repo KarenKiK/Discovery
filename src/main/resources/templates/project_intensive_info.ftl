@@ -18,20 +18,20 @@
     <div class="row">
         <div class="col-lg-9">
             <!-- Team -->
-            <i class="text-muted">Team:</i> <#list team.participants as user>
+            <i class="text-muted">Команда:</i> <#list team.participants as user>
                 <a id="${user.id}list1"><@p.text "${user.id}list1" "${user.username}"/></a><#sep>, <#--<#else>--> ... </#list>
         </div>
         <div class="col-lg-3 list-group list-group-flush">
-            <span class="list-group-item"><i class="text-muted">Created:</i>
+            <span class="list-group-item"><i class="text-muted">Создан:</i>
                 <a id="3"><@p.text "3" "${project.date_created}"/></a><br></span>
-            <span class="list-group-item"><i class="text-muted">Creator:</i>
+            <span class="list-group-item"><i class="text-muted">Создатель:</i>
                 <a id="4"><@p.text "4" "${project.creator.username}"/></a><br></span>
-            <span class="list-group-item"><i class="text-muted">Supervisor:</i>
+            <span class="list-group-item"><i class="text-muted">Руководитель:</i>
                 <#if team.supervisor??><a id="5">
                     <@p.text "5" "${team.supervisor.username}"/></a><#else>...</#if></span>
             <#if user_now.isCurator()>
                 <#list project.type as t>
-                    <span class="list-group-item"><i class="text-muted">Type:</i> ${t}<br></span>
+                    <span class="list-group-item"><i class="text-muted">Тип:</i> ${t}<br></span>
                 </#list>
             </#if>
         </div>
@@ -44,13 +44,13 @@
             <#if !team.supervisor??>
                 <div class="col">
                     <button type="button" class="btn btn-primary"
-                            data-toggle="modal" data-target="#addSupervisorModal">Add supervisor
+                            data-toggle="modal" data-target="#addSupervisorModal">Добавить руководителя
                     </button>
                 </div>
             </#if>
             <div class="col">
                 <button type="button" class="btn btn-primary"
-                        data-toggle="modal" data-target="#addUserModal">Add user
+                        data-toggle="modal" data-target="#addUserModal">Добавить пользователя
                 </button>
             </div>
         </div>
@@ -59,7 +59,7 @@
     <!-- Modals -->
     <@m.modal "addUserModal" "user" "Add" "Add User">
         <#if isEmptyTeam>
-            <p>No new participants available</p>
+            <p>Нет новых участников</p>
         </#if>
         <div class="input-group mb3">
             <form method="post" action="/intensive/${intensive.id}/project/${project.id}/add" id="user"
@@ -69,7 +69,7 @@
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <select id="selectUser" name="username" class="custom-select">
-                    <option selected>Choose...</option>
+                    <option selected>Выберите...</option>
                     <#list available_users as user>
                         <option id="${user.id}list1"><@p.text "${user.id}list1" "${user.username}"/></option>
                     </#list>
@@ -80,17 +80,17 @@
 
     <@m.modal "addSupervisorModal" "supervisor" "Add" "Add supervisor">
         <#if isEmptySupervisor>
-            <p>No curators available</p>
+            <p>Кураторы отсутствуют</p>
         </#if>
         <div class="input-group mb3">
             <form method="post" action="/intensive/${intensive.id}/project/${project.id}/supervisor" id="supervisor"
                   class="form-inline">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="selectSupervisor">Users</label>
+                    <label class="input-group-text" for="selectSupervisor">Пользователи</label>
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <select id="selectSupervisor" name="supervisor" class="custom-select">
-                    <option selected>Choose...</option>
+                    <option selected>Выберите...</option>
                     <#list supervisors as user>
                         <option id="${user.id}list2"><@p.text "${user.id}list2" "${user.username}"/></option>
                     </#list>
@@ -106,7 +106,7 @@
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         </div>
         <div class="col-lg-2">
-            <button type="submit" class="btn btn-primary mt-2">Send</button>
+            <button type="submit" class="btn btn-primary mt-2">Отправить</button>
         </div>
     </form>
 
@@ -128,7 +128,7 @@
                 </div>
             </li>
         <#else>
-            <span class="list-group-item text-muted">no comments</span>
+            <span class="list-group-item text-muted">Комментариев нет, добавьте первый комментарий</span>
         </#list>
     </ul>
 </@p.page>

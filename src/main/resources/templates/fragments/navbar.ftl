@@ -5,7 +5,7 @@
         <#else>
         <a class="navbar-brand text-white" href="/" style="font-weight: bold">
             </#if>
-            Home</a>
+            Главная странница</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
                     <#else>
                     <a class="nav-link text-white" href="/intensive">
                         </#if>
-                        Intensives</a>
+                        Интенсивы</a>
             </li>
             <!-- Projects list -->
             <li class="nav-item">
@@ -29,7 +29,7 @@
                     <#else>
                     <a class="nav-link text-white" href="/project">
                         </#if>
-                        Projects</a>
+                        Проекты</a>
             </li>
             <!-- Users list -->
             <#if isAdmin>
@@ -39,7 +39,7 @@
                         <#else>
                         <a class="nav-link text-white" href="/user">
                             </#if>
-                            Users</a>
+                            Панель АДМИНА</a>
                 </li>
             </#if>
         </ul>
@@ -58,7 +58,7 @@
         <!-- Logout -->
         <form action="/logout" method="post">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-            <button type="submit" class="btn btn-primary">Logout</button>
+            <button type="submit" class="btn btn-primary">Выйти</button>
         </form>
     </div>
 </nav>

@@ -3,7 +3,7 @@
 
 <@p.page "Profile">
 
-    <h1 class="row">User Profile</h1>
+    <h1 class="row">Профиль пользователя</h1>
     <hr>
     <div class="row text-large">
 
@@ -11,17 +11,17 @@
         <div class="col-lg-4">
             <div class="row">
                 <div class="col-lg-8">
-                    <span class="text-muted">Username: </span><a id="1"><@p.text "1" "${user_now.username}"/></a><br>
-                    <span class="text-muted">Password: </span><a id="2"><@p.text "2" "${user_now.password}"/></a><br>
-                    <span class="text-muted">Name: </span><a id="3"><@p.text "3" "${user_now.name}"/></a><br>
-                    <span class="text-muted">Surname: </span><a id="4"><@p.text "4" "${user_now.surname}"/></a><br>
+                    <span class="text-muted">Логин: </span><a id="1"><@p.text "1" "${user_now.username}"/></a><br>
+                    <span class="text-muted">Пароль: </span><a id="2"><@p.text "2" "${user_now.password}"/></a><br>
+                    <span class="text-muted">Имя: </span><a id="3"><@p.text "3" "${user_now.name}"/></a><br>
+                    <span class="text-muted">Фамилия: </span><a id="4"><@p.text "4" "${user_now.surname}"/></a><br>
                     <span class="text-muted">Role: </span>
                     <#list user_now.getAuthorities() as role>
                         ${role}
                     </#list>
                 </div>
                 <div class="col-lg-4">
-                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#editProfileModal"> Edit </button>
+                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#editProfileModal"> Редактировать </button>
                 </div>
             </div>
         </div>
@@ -30,19 +30,19 @@
         <@m.modal "editProfileModal" "profile" "Update" "Edit information">
             <form method="post" action="/profile" id="profile">
                 <div class="form-group">
-                    <label for="name" class="col-form-label">Username:</label>
+                    <label for="name" class="col-form-label">Логин:</label>
                     <input type="text" class="form-control" name="username">
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-form-label">Password:</label>
+                    <label for="password" class="col-form-label">Пароль:</label>
                     <input class="form-control" name="password" type="password">
                 </div>
                 <div class="form-group">
-                    <label for="name" class="col-form-label">Name:</label>
+                    <label for="name" class="col-form-label">Имя:</label>
                     <input class="form-control" name="name" type="text">
                 </div>
                 <div class="form-group">
-                    <label for="surname" class="col-form-label">Surname:</label>
+                    <label for="surname" class="col-form-label">Фамилия:</label>
                     <input class="form-control" name="surname" type="text">
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}" />
@@ -55,7 +55,7 @@
                 <!-- Projects user created -->
                 <div class="col-lg-4">
                     <div class="list-group list-group-flush shadow">
-                       <span class="list-group-item active">Suggested projects</span>
+                       <span class="list-group-item active">Предлагаемые проекты</span>
                         <#list user_now.createdProjects as project>
                             <a href="/project/${project.id}" class="list-group-item list-group-item-action"
                                id="${project.id}list1">
@@ -68,7 +68,7 @@
                 <!-- Projects user liked -->
                 <div class="col-lg-4">
                     <div class="list-group list-group-flush shadow">
-                        <span class="list-group-item active">Liked projects</span>
+                        <span class="list-group-item active">Понравившиеся проекты</span>
                         <#list user_now.liked_projects as project>
                             <a href="/project/${project.id}" class="list-group-item list-group-item-action"
                                id="${project.id}list0">
@@ -83,9 +83,9 @@
                     <div class="col-lg-4">
                         <div class="list-group list-group-flush shadow">
                             <#if !user_now.isCurator()>
-                                <li class="list-group-item list-group-item-action active">Participated in projects</li>
+                                <li class="list-group-item list-group-item-action active">Участники проектов</li>
                             <#else>
-                                <li class="list-group-item list-group-item-action active">Curator of projects</li>
+                                <li class="list-group-item list-group-item-action active">Куратор проектов</li>
                             </#if>
                             <#list projects as project>
                                 <a href="/intensive/${project.intensive.id}/project/${project.project.id}"
@@ -104,7 +104,7 @@
         <form method="post" action="/profile/upload" id="profile" enctype="multipart/form-data">
             <input name="file" type="file">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-            <button class="btn btn-primary" type="submit">Upload</button>
+            <button class="btn btn-primary" type="submit">Загрузить</button>
         </form>
     </div>
     <div>
@@ -121,18 +121,18 @@
         </#list>
     </div>
     <button type="button" class="btn btn-primary"
-            data-toggle="modal" data-target="#addTag">Add tag
+            data-toggle="modal" data-target="#addTag">Добавить тэг
     </button>
 
     <@m.modal "addTag" "tag" "Add" "Add tag to this project">
         <div class="input-group mb3">
             <form method="post" action="/profile/tag" id="tag" class="form-inline">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="selectType">Tags</label>
+                    <label class="input-group-text" for="selectType">Тэги</label>
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <select id="selectType" name="tag" class="custom-select">
-                    <option selected>Choose...</option>
+                    <option selected>Выберите...</option>
                     <#list tags as tag>
                         <option>${tag.text}</option>
                     </#list>

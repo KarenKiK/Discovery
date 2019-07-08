@@ -5,12 +5,12 @@
     <div class="row">
 
         <div class="col-lg-4">
-            <h1>Our intensives</h1>
+            <h1>Наши интенсивы</h1>
         </div>
         <!-- New intensive -->
         <div class="col-lg-8">
             <#if user_now.isCurator()>
-                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#newIntensiveModal"> New intensive </button>
+                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#newIntensiveModal"> Новые интенсивы </button>
             </#if>
         </div>
     </div>
@@ -19,19 +19,19 @@
     <@m.modal "newIntensiveModal" "intensive" "Create" "Create intensive">
         <form method="post" action="/intensive" id="intensive">
             <div class="form-group">
-                <label for="name" class="col-form-label">Name of intensive:</label>
+                <label for="name" class="col-form-label">Название интенсива:</label>
                 <input type="text" class="form-control" name="name">
             </div>
             <div class="form-group">
-                <label for="description" class="col-form-label">Description:</label>
+                <label for="description" class="col-form-label">Описание:</label>
                 <textarea class="form-control" name="description"></textarea>
             </div>
             <div class="form-group">
-                <label for="date_end" class="col-form-label">Date of start (YYYY-MM-DD):</label>
+                <label for="date_end" class="col-form-label">Дата начала (YYYY-MM-DD):</label>
                 <textarea class="form-control" name="date_start"></textarea>
             </div>
             <div class="form-group">
-                <label for="date_end" class="col-form-label">Date of end (YYYY-MM-DD):</label>
+                <label for="date_end" class="col-form-label">Дата конца (YYYY-MM-DD):</label>
                 <textarea class="form-control" name="date_end"></textarea>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         <#else>
-            No intensives right now zzz
+            Сейчас нет никаких интенсивов
         </#list>
     </div>
 </@p.page>

@@ -10,7 +10,7 @@
         <div class="col-lg-4">
             <#if user_now.isModerator() || project.isCreator(user_now)>
                 <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                        data-target="#editProjectModal"> Edit
+                        data-target="#editProjectModal"> Редактировать
                 </button>
             </#if>
         </div>
@@ -24,24 +24,24 @@
 
     <div class="row">
         <div class="col-lg-9">
-            <i class="text-muted">Who liked:</i> <#list project.who_liked as user>
+            <i class="text-muted">Кому понравилось:</i> <#list project.who_liked as user>
                 <a id="${user.id}list0"><@p.text "${user.id}list0" "${user.username}"/></a><#sep>, <#--<#else>--> ... </#list>
         </div>
         <div class="col-lg-9">
-            <i class="text-muted">Tags:</i>
+            <i class="text-muted">Тэг:</i>
             <#list project.tags as tag>
                 #${tag.text}
-                <#sep>; <#--<#else>--> No tags
+                <#sep>; <#--<#else>--> Нету тэгов
             </#list>
         </div>
         <div class="col-lg-3 list-group list-group-flush">
-            <span class="list-group-item"><i class="text-muted">Created:</i>
+            <span class="list-group-item"><i class="text-muted">Создано:</i>
                 <a id="3"><@p.text "3" "${project.date_created}"/></a><br></span>
-            <span class="list-group-item"><i class="text-muted">Creator:</i>
+            <span class="list-group-item"><i class="text-muted">Создатель:</i>
                 <a id="4"><@p.text "4" "${project.creator.username}"/></a><br></span>
             <#if user_now.isCurator()>
                 <#list project.type as t>
-                    <span class="list-group-item"><i class="text-muted">Type:</i> ${t}<br></span>
+                    <span class="list-group-item"><i class="text-muted">Тип:</i> ${t}<br></span>
                 </#list>
             </#if>
         </div>
@@ -53,17 +53,17 @@
         <div class="form-row my-3">
             <div class="col">
                 <button type="button" class="btn btn-primary"
-                        data-toggle="modal" data-target="#changeType">Change type
+                        data-toggle="modal" data-target="#changeType">Изменить тип
                 </button>
             </div>
             <div class="col">
                 <button type="button" class="btn btn-primary"
-                        data-toggle="modal" data-target="#deleteProject">Delete
+                        data-toggle="modal" data-target="#deleteProject">Удалить
                 </button>
             </div>
             <div class="col">
                 <button type="button" class="btn btn-primary"
-                        data-toggle="modal" data-target="#addTag">Add tag
+                        data-toggle="modal" data-target="#addTag">Добавить тэг
                 </button>
             </div>
         </div>
@@ -74,11 +74,11 @@
         <div class="input-group mb3">
             <form method="post" action="/project/${project.id}/type" id="type" class="form-inline">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="selectType">Types</label>
+                    <label class="input-group-text" for="selectType">Типы</label>
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <select id="selectType" name="type" class="custom-select">
-                    <option selected>Choose...</option>
+                    <option selected>Выберите...</option>
                     <#list types as type>
                         <option>${type}</option>
                     </#list>
@@ -90,7 +90,7 @@
     <@m.modal "deleteProject" "delete" "Confirm" "Are you sure?">
         <div class="input-group mb3">
             <form method="post" action="/project/${project.id}/delete" id="delete" class="form-inline">
-                <p>This project will be absolutely destroyed...</p>
+                <p>Этот проект будет полностью удален...</p>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             </form>
         </div>
@@ -99,11 +99,11 @@
     <@m.modal "editProjectModal" "project" "Update" "Edit project information">
         <form method="post" action="/project/${project.id}/edit" id="project">
             <div class="form-group">
-                <label for="name" class="col-form-label">Name of project:</label>
+                <label for="name" class="col-form-label">Название проектов:</label>
                 <input type="text" class="form-control" name="name">
             </div>
             <div class="form-group">
-                <label for="description" class="col-form-label">Description:</label>
+                <label for="description" class="col-form-label">Описание:</label>
                 <textarea class="form-control" name="description"></textarea>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -114,11 +114,11 @@
         <div class="input-group mb3">
             <form method="post" action="/project/${project.id}/tag" id="tag" class="form-inline">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="selectType">Tags</label>
+                    <label class="input-group-text" for="selectType">Тэги</label>
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <select id="selectType" name="tag" class="custom-select">
-                    <option selected>Choose...</option>
+                    <option selected>Выберите...</option>
                     <#list tags as tag>
                         <option>${tag.text}</option>
                     </#list>
@@ -134,7 +134,7 @@
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         </div>
         <div class="col-lg-2">
-            <button type="submit" class="btn btn-primary mt-2">Send</button>
+            <button type="submit" class="btn btn-primary mt-2">Отправить</button>
         </div>
     </form>
 
@@ -156,7 +156,7 @@
                 </div>
             </li>
         <#else>
-            <span class="list-group-item text-muted">no comments</span>
+            <span class="list-group-item text-muted">Комментариев еще нет, добавьте первый комментарий.</span>
         </#list>
     </ul>
 </@p.page>

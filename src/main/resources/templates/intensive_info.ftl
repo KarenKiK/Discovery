@@ -19,8 +19,8 @@
             <p id="2"><@p.text "2" "${intensive.description}"/></p>
         </div>
         <div class="col-lg-3">
-            <i>Dates:</i> <a id="3"><@p.text "3" "${intensive.date_start} - ${intensive.date_end}"/></a><br>
-            <i>Curator:</i> <a id="4"><@p.text "4" "${intensive.curator.username}"/></a>
+            <i>Даты:</i> <a id="3"><@p.text "3" "${intensive.date_start} - ${intensive.date_end}"/></a><br>
+            <i>Куратор:</i> <a id="4"><@p.text "4" "${intensive.curator.username}"/></a>
         </div>
         <div class="col-lg-9">
             <i class="text-muted">Files:</i>
@@ -30,7 +30,7 @@
                         <@p.text "${file}list-1" "${intensive.file_name(file)}"/></a>
                     <#sep>; <#--<#else>--> No files
                 </#list>
-            <#else>No files</#if>
+            <#else>Нет файлов</#if>
         </div>
     </div>
 
@@ -39,7 +39,7 @@
         <div class="form-row my-3">
             <div class="col">
                 <button type="button" class="btn btn-primary"
-                        data-toggle="modal" data-target="#addProject">Add project
+                        data-toggle="modal" data-target="#addProject">Добавить проект
                 </button>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <form method="post" action="/intensive/${intensive.id}/upload" enctype="multipart/form-data">
                 <input name="file" type="file">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                <button class="btn btn-primary" type="submit">Upload</button>
+                <button class="btn btn-primary" type="submit">Загрузить</button>
             </form>
         </div>
     </#if>
@@ -56,19 +56,19 @@
     <@m.modal "editIntensiveModal" "intensive" "Update" "Edit intensive">
         <form method="post" action="/intensive/${intensive.id}/edit" id="intensive">
             <div class="form-group">
-                <label for="name" class="col-form-label">Name of intensive:</label>
+                <label for="name" class="col-form-label">Название интенсива:</label>
                 <input type="text" class="form-control" name="name">
             </div>
             <div class="form-group">
-                <label for="description" class="col-form-label">Description:</label>
+                <label for="description" class="col-form-label">Описание:</label>
                 <textarea class="form-control" name="description"></textarea>
             </div>
             <div class="form-group">
-                <label for="description" class="col-form-label">Date of start (YYYY-MM-DD):</label>
+                <label for="description" class="col-form-label">Дата начала (YYYY-MM-DD):</label>
                 <input class="form-control" name="date_start"></input>
             </div>
             <div class="form-group">
-                <label for="description" class="col-form-label">Date of end (YYYY-MM-DD):</label>
+                <label for="description" class="col-form-label">Дата конца (YYYY-MM-DD):</label>
                 <input class="form-control" name="date_end"></input>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -77,16 +77,16 @@
 
     <@m.modal "addProject" "project" "Add" "Add project">
         <#if isEmpty>
-            <p>No new projects available</p>
+            <p>Нет новых проектов</p>
         </#if>
         <div class="input-group mb3">
             <form method="post" action="/intensive/${intensive.id}" id="project" class="form-inline">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="selectProject">Projects</label>
+                    <label class="input-group-text" for="selectProject">Проекты</label>
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <select id="selectProject" name="project_name" class="custom-select">
-                    <option selected>Choose...</option>
+                    <option selected>Выберите...</option>
                     <#list all_projects as item>
                         <option selected id="${item.id}list1"><@p.text "${item.id}list1" "${item.name}"/></option>
                     </#list>
@@ -119,7 +119,7 @@
                 </div>
             </div>
         <#else>
-            <h3>No projects yet</h3>
+            <h3>Пока нет проектов</h3>
         </#list>
     </div>
 </@p.page>

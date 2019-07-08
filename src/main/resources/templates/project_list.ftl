@@ -4,11 +4,11 @@
 <@p.page "Projects list">
     <div class="row">
         <div class="col-lg-4">
-            <h1>Projects</h1>
+            <h1>Проекты</h1>
         </div>
         <div class="col-lg-8">
             <button type="button" class="btn btn-primary float-right"
-                    data-toggle="modal" data-target="#newProjectModal"> New project
+                    data-toggle="modal" data-target="#newProjectModal"> Новый проект
             </button>
         </div>
     </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="col-2">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary">Поиск</button>
             </div>
         </div>
     </form>
@@ -31,22 +31,22 @@
         <!-- Project types -->
         <#if !search??>
             <div class="btn-group btn-group-lg" role="group" aria-label="Button group for project by type searching" style="margin-bottom: 10px;">
-                <a href="/project"> <button type="button" class="btn btn-light"> All </button> </a>
-                <a href="/project?type=NEW"> <button type="button" class="btn btn-light"> New projects </button> </a>
-                <a href="/project?type=ACCEPTED"> <button type="button" class="btn btn-light"> Accepted projects </button> </a>
-                <a href="/project?type=DECLINED"> <button type="button" class="btn btn-light"> Declined projects </button> </a>
-                <a href="/project?type=ARCHIVED"> <button type="button" class="btn btn-light"> Archived projects </button> </a>
+                <a href="/project"> <button type="button" class="btn btn-light"> Все </button> </a>
+                <a href="/project?type=NEW"> <button type="button" class="btn btn-light"> Новый проект </button> </a>
+                <a href="/project?type=ACCEPTED"> <button type="button" class="btn btn-light"> Принятые проекты </button> </a>
+                <a href="/project?type=DECLINED"> <button type="button" class="btn btn-light"> Отклоненные проекты </button> </a>
+                <a href="/project?type=ARCHIVED"> <button type="button" class="btn btn-light"> Архивные проекты </button> </a>
             </div>
         </#if>
 
         <@m.modal "newProjectModal" "project" "Create" "Create project">
             <form method="post" action="/project" id="project">
                 <div class="form-group">
-                    <label for="name" class="col-form-label">Name of project:</label>
+                    <label for="name" class="col-form-label">Название проекта:</label>
                     <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
-                    <label for="description" class="col-form-label">Description:</label>
+                    <label for="description" class="col-form-label">Описание:</label>
                     <textarea class="form-control" name="description"></textarea>
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             <#else>
-                No projects right now zzz
+                Сейчас нет проектов, предложите свой проект.
             </#list>
         </div>
     </#if>

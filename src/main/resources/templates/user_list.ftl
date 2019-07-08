@@ -1,7 +1,7 @@
 <#import "fragments/page.ftl" as p>
 
 <@p.page "Users List">
-    <h1>Users</h1>
+    <h1>Пользователи</h1>
     <hr>
     <!-- User search -->
     <form method="post" action="/user">
@@ -11,7 +11,7 @@
             </div>
             <div class="col-2">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary">Поиск</button>
             </div>
         </div>
     </form>
@@ -22,13 +22,13 @@
             ${error}
         </h3>
     <#else>
-        <div style="font-weight: bold; font-size: 20px;">List of all users in system:</div>
+        <div style="font-weight: bold; font-size: 20px;">Список всех пользователей в системе:</div>
         <table class="table mt-4 table-bordered table-hover">
             <thead class="thead-dark">
             <tr>
-                <th>Username</th>
-                <th>Authority</th>
-                <th colspan="3">Action</th>
+                <th>Логин</th>
+                <th>Полномочия</th>
+                <th colspan="3">Выбрать действие</th>
             </tr>
             </thead>
             <tbody>
@@ -59,26 +59,26 @@
                 </td>
                 <#if !containsAdmin>
                     <#if !containsMod>
-                        <td><a href="/user/${user.id}/mod">Make mod</a></td>
+                        <td><a href="/user/${user.id}/mod">Сделать модератором</a></td>
                     <#else>
-                        <td><a href="/user/${user.id}/mod">Unmod</a></td>
+                        <td><a href="/user/${user.id}/mod">Убрать из модераторов</a></td>
                     </#if>
 
                     <#if !containsCurator>
-                        <td><a href="/user/${user.id}/cur">Make curator</a></td>
+                        <td><a href="/user/${user.id}/cur">Сделать куратором</a></td>
                     <#else>
-                        <td><a href="/user/${user.id}/cur">Uncurate xD</a></td>
+                        <td><a href="/user/${user.id}/cur">Убрать из кураторов</a></td>
                     </#if>
 
                     <#if !containsBan>
-                        <td><a href="/user/${user.id}/ban">Ban this mf</a></td>
+                        <td><a href="/user/${user.id}/ban">Забанить</a></td>
                     <#else>
-                        <td><a href="/user/${user.id}/ban">Unban</a></td>
+                        <td><a href="/user/${user.id}/ban">Разбанить</a></td>
                     </#if>
                 <#else>
-                    <td>Can't</td>
-                    <td>touch</td>
-                    <td>this</td>
+                    <td>НЕЛЬЗЯ</td>
+                    <td>НИЧЕГО</td>
+                    <td>ТРОГАТЬ</td>
                 </#if>
                 </tr>
             </#list>
@@ -93,7 +93,7 @@
             </div>
             <div class="col-2">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Обновить</button>
             </div>
         </div>
     </form>

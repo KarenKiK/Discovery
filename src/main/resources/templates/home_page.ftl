@@ -2,6 +2,6 @@
 
 <@p.page "Home page">
     <h2>
-        This is just a hello page :3
+        Добро пожаловать на мой первый сайт, надеюсь он Вам понравиться!)
     </h2>
 </@p.page>
