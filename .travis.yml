@@ -2,9 +2,8 @@ language: java
 jdk: oraclejdk12
 install: true
 
-script:
-#  ./mvn -e verify
--mvn install
+script: ./mvn -e verify
+#-mvn install
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
