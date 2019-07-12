@@ -1,10 +1,15 @@
 language: java
 jdk: oraclejdk12
 
-script: mvn -e verify
+script: ./mvn -e verify
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: discovery[my_first_little_big_project]
 
 notifications:
   email:
