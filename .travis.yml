@@ -1,0 +1,11 @@
+language: java
+jdk: oraclejdk12
+
+script: mvn -e verify
+
+notifications:
+  email:
+    recipients:
+      - kik_k-2@mail.ru
+    on_failure: always
+    on_success: change
