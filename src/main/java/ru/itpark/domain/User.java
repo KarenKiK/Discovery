@@ -71,6 +71,9 @@ public class User implements UserDetails {
 
         this.roles = Collections.singleton(Role.USER);
         this.active = true;
+
+        this.roles = Collections.singleton(Role.BAN);
+        this.active = false;
     }
 
     @Override

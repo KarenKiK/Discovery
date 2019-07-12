@@ -57,7 +57,7 @@
     </#if>
 
     <!-- Modals -->
-    <@m.modal "addUserModal" "user" "Add" "Add User">
+    <@m.modal "addUserModal" "user" "Добавить" "Добавить участников">
         <#if isEmptyTeam>
             <p>Нет новых участников</p>
         </#if>
@@ -78,7 +78,7 @@
         </div>
     </@m.modal>
 
-    <@m.modal "addSupervisorModal" "supervisor" "Add" "Add supervisor">
+    <@m.modal "addSupervisorModal" "supervisor" "Добавить" "Добавить руководителя">
         <#if isEmptySupervisor>
             <p>Кураторы отсутствуют</p>
         </#if>

@@ -31,7 +31,7 @@
             <i class="text-muted">Тэг:</i>
             <#list project.tags as tag>
                 #${tag.text}
-                <#sep>; <#--<#else>--> Нету тэгов
+                <#sep>; <#--<#else Нету тэгов>-->
             </#list>
         </div>
         <div class="col-lg-3 list-group list-group-flush">
@@ -70,7 +70,7 @@
     </#if>
 
     <!-- Modals -->
-    <@m.modal "changeType" "type" "Change" "Change type of this project">
+    <@m.modal "changeType" "type" "Изменить" "Изменить тип данного проекта">
         <div class="input-group mb3">
             <form method="post" action="/project/${project.id}/type" id="type" class="form-inline">
                 <div class="input-group-prepend">
@@ -87,7 +87,7 @@
         </div>
     </@m.modal>
 
-    <@m.modal "deleteProject" "delete" "Confirm" "Are you sure?">
+    <@m.modal "deleteProject" "delete" "Подтвердить" "Уверены ли Вы?">
         <div class="input-group mb3">
             <form method="post" action="/project/${project.id}/delete" id="delete" class="form-inline">
                 <p>Этот проект будет полностью удален...</p>
@@ -96,7 +96,7 @@
         </div>
     </@m.modal>
 
-    <@m.modal "editProjectModal" "project" "Update" "Edit project information">
+    <@m.modal "editProjectModal" "project" "Обновить" "Изменить информацию о проекте">
         <form method="post" action="/project/${project.id}/edit" id="project">
             <div class="form-group">
                 <label for="name" class="col-form-label">Название проектов:</label>
@@ -110,7 +110,7 @@
         </form>
     </@m.modal>
 
-    <@m.modal "addTag" "tag" "Add" "Add tag to this project">
+    <@m.modal "addTag" "tag" "Добавить" "Добавить тэг в этот проект">
         <div class="input-group mb3">
             <form method="post" action="/project/${project.id}/tag" id="tag" class="form-inline">
                 <div class="input-group-prepend">
@@ -130,7 +130,7 @@
     <!-- Send comment -->
     <form method="post" action="/project/${project.id}/comment" class="row">
         <div class="col-lg-10">
-            <input type="text" name="text" placeholder="Your message" class="form-control my-2"/>
+            <input type="text" name="text" placeholder="Ваше сообщение" class="form-control my-2"/>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         </div>
         <div class="col-lg-2">

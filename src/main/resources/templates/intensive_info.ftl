@@ -8,7 +8,8 @@
         </div>
         <#if user_now.isCurator() >
              <div class="col-lg-6">
-                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#editIntensiveModal"> Edit </button>
+                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#editIntensiveModal">
+                    Редактировать </button>
             </div>
         </#if>
     </div>
@@ -23,12 +24,12 @@
             <i>Куратор:</i> <a id="4"><@p.text "4" "${intensive.curator.username}"/></a>
         </div>
         <div class="col-lg-9">
-            <i class="text-muted">Files:</i>
+            <i class="text-muted">Файлы:</i>
             <#if intensive.files??>
                 <#list intensive.files as file>
                     <a href="/image/${file}" download="${intensive.file_name(file)}" id="${file}list-1">
                         <@p.text "${file}list-1" "${intensive.file_name(file)}"/></a>
-                    <#sep>; <#--<#else>--> No files
+                    <#sep>; <#--<#else> No files-->
                 </#list>
             <#else>Нет файлов</#if>
         </div>
@@ -53,7 +54,7 @@
     </#if>
 
     <!-- Modals -->
-    <@m.modal "editIntensiveModal" "intensive" "Update" "Edit intensive">
+    <@m.modal "editIntensiveModal" "intensive" "Обновить" "Редактировать интенсив">
         <form method="post" action="/intensive/${intensive.id}/edit" id="intensive">
             <div class="form-group">
                 <label for="name" class="col-form-label">Название интенсива:</label>
@@ -75,7 +76,7 @@
         </form>
     </@m.modal>
 
-    <@m.modal "addProject" "project" "Add" "Add project">
+    <@m.modal "addProject" "project" "Добавить" "Добавить проект">
         <#if isEmpty>
             <p>Нет новых проектов</p>
         </#if>
@@ -110,11 +111,11 @@
                         </p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"
-                                id="${project.id}list4"><@p.text "${project.id}list4" "Date: ${project.date_created}"/></li>
+                                id="${project.id}list4"><@p.text "${project.id}list4" "Дата: ${project.date_created}"/></li>
                         </ul>
                     </div>
                     <div class="card-footer text-muted" id="${project.id}list5">
-                        <@p.text "${project.id}list5" "Creator: ${project.creator.username}"/>
+                        <@p.text "${project.id}list5" "Создатель: ${project.creator.username}"/>
                     </div>
                 </div>
             </div>

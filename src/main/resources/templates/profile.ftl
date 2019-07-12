@@ -27,7 +27,7 @@
         </div>
 
         <!-- Edit modal -->
-        <@m.modal "editProfileModal" "profile" "Update" "Edit information">
+        <@m.modal "editProfileModal" "profile" "Обновить" "Изменить информацию">
             <form method="post" action="/profile" id="profile">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Логин:</label>
@@ -117,14 +117,14 @@
     <div>
         <#list user_now.tags as tag>
             #${tag.text}
-            <#sep>; <#--<#else>--> No tags
+            <#sep>; <#--<#else>-->
         </#list>
     </div>
     <button type="button" class="btn btn-primary"
             data-toggle="modal" data-target="#addTag">Добавить тэг
     </button>
 
-    <@m.modal "addTag" "tag" "Add" "Add tag to this project">
+    <@m.modal "addTag" "tag" "Добавить" "Добавить тэг к этому проекту">
         <div class="input-group mb3">
             <form method="post" action="/profile/tag" id="tag" class="form-inline">
                 <div class="input-group-prepend">

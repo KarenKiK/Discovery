@@ -18,7 +18,7 @@
     <form method="post" action="/project/search">
         <div class="row my-4">
             <div class="col-10">
-                <input type="text" class="form-control" placeholder="Project's name/tag" name="name">
+                <input type="text" class="form-control" placeholder="Введите имя проекта или тэг" name="name">
             </div>
             <div class="col-2">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -39,7 +39,7 @@
             </div>
         </#if>
 
-        <@m.modal "newProjectModal" "project" "Create" "Create project">
+        <@m.modal "newProjectModal" "project" "Создать" "Создать проект">
             <form method="post" action="/project" id="project">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Название проекта:</label>
@@ -69,7 +69,7 @@
                             </p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item" id="${project.id}list3">
-                                    <@p.text "${project.id}list3" "Date: ${project.date_created}"/></li>
+                                    <@p.text "${project.id}list3" "Дата создания: ${project.date_created}"/></li>
                                 <li class="list-group-item">
                                     ${project.like_amount()}
                                     <a href="/project/${project.id}/like">Like</a>
@@ -77,7 +77,7 @@
                             </ul>
                         </div>
                         <div class="card-footer text-muted" id="${project.id}list5">
-                            <@p.text "${project.id}list5" "Creator: ${project.creator.username}"/>
+                            <@p.text "${project.id}list5" "Создатель: ${project.creator.username}"/>
                         </div>
                     </div>
                 </div>

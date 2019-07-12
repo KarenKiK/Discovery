@@ -16,7 +16,7 @@
     </div>
     <hr>
 
-    <@m.modal "newIntensiveModal" "intensive" "Create" "Create intensive">
+    <@m.modal "newIntensiveModal" "intensive" "Создать" "Создать интенсив">
         <form method="post" action="/intensive" id="intensive">
             <div class="form-group">
                 <label for="name" class="col-form-label">Название интенсива:</label>
@@ -53,13 +53,13 @@
                         </p>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"
-                                id="${intensive.id}list3"><@p.text "${intensive.id}list3" "Start: ${intensive.date_start}"/></li>
+                                id="${intensive.id}list3"><@p.text "${intensive.id}list3" "Начало: ${intensive.date_start}"/></li>
                             <li class="list-group-item"
-                                id="${intensive.id}list4"><@p.text "${intensive.id}list4" "End: ${intensive.date_end}"/></li>
+                                id="${intensive.id}list4"><@p.text "${intensive.id}list4" "Конец: ${intensive.date_end}"/></li>
                         </ul>
                     </div>
                     <div class="card-footer text-muted" id="${intensive.id}list5">
-                        <@p.text "${intensive.id}list5" "Curator: ${intensive.curator.username}"/>
+                        <@p.text "${intensive.id}list5" "Куратор: ${intensive.curator.username}"/>
                     </div>
                 </div>
             </div>

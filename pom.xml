@@ -90,6 +90,9 @@
     <properties>
         <java.version>1.8</java.version>
         <spring.profiles.active>local,no-liquibase</spring.profiles.active>
+        <maven.compiler.sourse>12</maven.compiler.sourse>
+        <maven.compiler.target>12</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
