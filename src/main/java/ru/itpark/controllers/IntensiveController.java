@@ -71,4 +71,5 @@ public class IntensiveController {
 
         return "redirect:/intensive/{intensive}";
     }
+
 }
