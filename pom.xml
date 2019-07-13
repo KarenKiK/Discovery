@@ -27,13 +27,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Frontend -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
-        <!-- Optional -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

@@ -46,6 +46,7 @@ public class IntensiveService {
         } else {
             intensiveRepo.save(new Intensive(name, description, date_end, date_start, user));
         }
+
     }
 
     public void intensiveInfo(Intensive intensive, Model model) {
